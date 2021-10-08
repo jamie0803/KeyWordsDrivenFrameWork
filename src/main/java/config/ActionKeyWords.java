@@ -23,7 +23,7 @@ public class ActionKeyWords {
     public static void openUrl() {
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        webDriver.get("https://www.126.com/");
+        webDriver.get(Constants.URL);
     }
     public static void clickLoginLink() {
         WebElement element = webDriver.findElement(By.xpath("//iframe[contains(@id,'x-URS-iframe')]"));
@@ -32,10 +32,10 @@ public class ActionKeyWords {
 
     }
     public static void inputUsername() {
-        webDriver.findElement(By.xpath("//input[contains(@data-placeholder,'邮箱帐号或手机号')]")).sendKeys("jamie_zhj");
+        webDriver.findElement(By.xpath("//input[contains(@data-placeholder,'邮箱帐号或手机号')]")).sendKeys(Constants.userName);
     }
     public static void inputPassword() {
-        webDriver.findElement(By.xpath("//input[@name='password']")).sendKeys("wo8482125");
+        webDriver.findElement(By.xpath("//input[@name='password']")).sendKeys(Constants.password);
     }
     public static void clickLoginButton() {
         webDriver.findElement(By.id("dologin")).click();

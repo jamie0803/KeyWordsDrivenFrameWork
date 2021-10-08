@@ -1,6 +1,7 @@
 package executionEngine;
 
 import config.ActionKeyWords;
+import config.Constants;
 import utils.ExcelUtils;
 
 import java.lang.reflect.InvocationTargetException;
@@ -25,20 +26,16 @@ public class DriverScript {
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException, ClassNotFoundException {
         //程序进来后到main方法，所以必须先实例化一个DriverScript对象
         DriverScript script = new DriverScript();
-        String excelPath = System.getProperty("user.dir") + "\\src\\main\\java\\dataEngine\\dataEngine.xlsx";
+//        String excelPath = System.getProperty("user.dir") + "\\src\\main\\java\\dataEngine\\dataEngine.xlsx";
+        String excelPath = Constants.Path_TestData;
 
         // 加载读取excel文件
-        ExcelUtils.setExcelFile(excelPath, "TestSteps");
+        ExcelUtils.setExcelFile(excelPath, Constants.Sheet_TestSteps);
 
         for (int iRow = 1; iRow <= 6; iRow++) {
             //从excel中读取关键字
-            keyWord = ExcelUtils.getCellData(iRow, 3);
-            for (int i = 0; i < methods.length; i++) {
-                if (methods[i].getName().equals(keyWord)) {
-                    methods[i].invoke(actionKeyWords);
-                    break;
-                }
-            }
+            keyWord = ExcelUtils.getCellData(iRow, Constants.Col_ActionKeyword);
+            executeActions();
 
             /** 和excel文件中关键字进行对比
              if (sActionKeyword.equals("openBrowser")) {
@@ -56,6 +53,15 @@ public class DriverScript {
              ActionKeyWords.clickLoginButton();
              }*/
 
+        }
+    }
+
+    private static void executeActions() throws IllegalAccessException, InvocationTargetException {
+        for (int i = 0; i < methods.length; i++) {
+            if (methods[i].getName().equals(keyWord)) {
+                methods[i].invoke(actionKeyWords);
+                break;
+            }
         }
     }
 }
