@@ -1,0 +1,7 @@
+#loginPage
+loginLink = "//iframe[contains(@id,'x-URS-iframe')]"
+
+#homePage
+usernameInputBox = "//input[contains(@data-placeholder,'邮箱帐号或手机号')]"
+passwordInputBox = "//input[@name='password']"
+loginSubmitButton = "By.id("dologin")"

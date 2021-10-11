@@ -25,11 +25,19 @@ public class ActionKeyWords {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         webDriver.get(Constants.URL);
     }
+
+    public static void input(String path) {
+        webDriver.findElement(By.xpath(path)).sendKeys(Constants.userName);
+    }
+
+    public static void click(String path) {
+        webDriver.findElement(By.xpath(path)).click();
+    }
+
     public static void clickLoginLink() {
         WebElement element = webDriver.findElement(By.xpath("//iframe[contains(@id,'x-URS-iframe')]"));
         element.click();
         webDriver.switchTo().frame(element);
-
     }
     public static void inputUsername() {
         webDriver.findElement(By.xpath("//input[contains(@data-placeholder,'邮箱帐号或手机号')]")).sendKeys(Constants.userName);
