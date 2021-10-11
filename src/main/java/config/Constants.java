@@ -15,9 +15,12 @@ public class Constants {
     public static final int Col_TestScenarioID = 1 ;
     public static final int Col_TestPageObject = 3;
     public static final int Col_ActionKeyword = 4 ;
+    public static final int Col_RunMode =2 ;
 
     // DataEngine.excel中sheet的名称
     public static final String Sheet_TestSteps = "TestSteps";
+    //第二个sheet的名称
+    public static final String Sheet_TestCases = "TestCases";
 
     // 测试登录用到的用户数据
     public static final String userName = "jamie_zhj";

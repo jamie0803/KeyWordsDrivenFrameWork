@@ -41,12 +41,12 @@ public class DriverScript {
         properties = new Properties(System.getProperties());
         properties.load(fis);
         // 加载读取excel文件
-        ExcelUtils.setExcelFile(excelPath, Constants.Sheet_TestSteps);
+        ExcelUtils.setExcelFile(excelPath);
         for (int iRow = 1; iRow <= 6; iRow++) {
             //从excel中读取ActionWord列关键字， 4是此列的索引
-            keyWord = ExcelUtils.getCellData(iRow, Constants.Col_ActionKeyword);
+            keyWord = ExcelUtils.getCellData(iRow, Constants.Col_ActionKeyword, );
             //从Excel中读取PageObject列关键字， 3是此列的索引
-            pageObjectWord = ExcelUtils.getCellData(iRow, Constants.Col_TestPageObject);
+            pageObjectWord = ExcelUtils.getCellData(iRow, Constants.Col_TestPageObject,);
             executeActions();
 
             /** 和excel文件中关键字进行对比
